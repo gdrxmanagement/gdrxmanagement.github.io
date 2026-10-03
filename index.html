@@ -75,7 +75,6 @@
     nav a {
       color: #bdbdbd;
       font-size: 14px;
-
       transition: 0.3s;
     }
 
@@ -1000,19 +999,91 @@
 
 
     /* =========================
-       ABOUT
+       PREMIUM ABOUT
     ========================= */
 
-    .about {
-      max-width: 850px;
+    #about {
+      position: relative;
     }
 
-    .about p {
-      color: #999999;
+    .about-premium {
+      display: grid;
 
-      font-size: 19px;
+      grid-template-columns: 1.25fr 0.75fr;
+
+      gap: 90px;
+
+      align-items: start;
+    }
+
+    .about-main {
+      max-width: 720px;
+    }
+
+    .about-title {
+      font-size: clamp(42px, 6vw, 72px);
+
+      line-height: 0.98;
+
+      letter-spacing: -3px;
+
+      margin-bottom: 35px;
+    }
+
+    .about-title span {
+      color: #666666;
+    }
+
+    .about-description {
+      max-width: 680px;
+
+      color: #8a8a8a;
+
+      font-size: 17px;
 
       line-height: 1.9;
+
+      margin-bottom: 18px;
+    }
+
+    .about-side {
+      border-top: 1px solid #252525;
+    }
+
+    .about-point {
+      display: grid;
+
+      grid-template-columns: 45px 1fr;
+
+      gap: 18px;
+
+      padding: 25px 0;
+
+      border-bottom: 1px solid #252525;
+    }
+
+    .about-point > span {
+      color: #555555;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+    }
+
+    .about-point h3 {
+      font-size: 17px;
+
+      margin-bottom: 7px;
+    }
+
+    .about-point p {
+      color: #707070;
+
+      font-size: 12px;
+
+      line-height: 1.7;
     }
 
 
@@ -1136,6 +1207,9 @@
         font-size: 9px;
       }
 
+
+      /* STATS */
+
       .stats {
         grid-template-columns: 1fr;
       }
@@ -1149,6 +1223,9 @@
       .stat:last-child {
         border-bottom: none;
       }
+
+
+      /* CREATORS */
 
       .creator-heading {
         display: block;
@@ -1185,7 +1262,7 @@
       }
 
 
-      /* MOBILE BRANDS */
+      /* BRANDS */
 
       .brands-heading {
         display: block;
@@ -1225,6 +1302,27 @@
         border-bottom: none;
       }
 
+
+      /* ABOUT */
+
+      .about-premium {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+      }
+
+      .about-title {
+        font-size: clamp(42px, 13vw, 65px);
+
+        letter-spacing: -2.5px;
+      }
+
+      .about-description {
+        font-size: 16px;
+      }
+
+
+      /* GENERAL */
 
       section {
         padding: 80px 20px;
@@ -1421,7 +1519,9 @@
     <div class="creator-grid">
 
 
-      <!-- BLACK FLAG ARMY -->
+      <!-- =========================
+           BLACK FLAG ARMY
+      ========================= -->
 
       <div class="creator-card">
 
@@ -1509,7 +1609,9 @@
 
 
 
-      <!-- AAWARI -->
+      <!-- =========================
+           AAWARI
+      ========================= -->
 
       <div class="creator-card">
 
@@ -1872,25 +1974,114 @@
     </div>
 
 
-    <div class="about">
+    <div class="about-premium">
 
-      <h2 class="section-title">
+      <div class="about-main">
 
-        Connecting talent<br>
+        <h2 class="about-title">
+          Built for creators.<br>
+          <span>Built for brands.</span>
+        </h2>
 
-        with opportunity.
 
-      </h2>
+        <p class="about-description">
+
+          GDRX Management is a creator management team focused on
+          connecting influential creators with meaningful commercial
+          opportunities.
+
+        </p>
 
 
-      <p>
+        <p class="about-description">
 
-        GDRX Management is a creator management team focused on
-        building meaningful partnerships between creators and brands.
-        We help brands collaborate with the right creators while
-        helping creators build long-term commercial opportunities.
+          We work closely with creators and brands to build partnerships
+          that feel authentic, reach the right audiences and create
+          long-term value.
 
-      </p>
+        </p>
+
+      </div>
+
+
+      <div class="about-side">
+
+
+        <!-- 01 -->
+
+        <div class="about-point">
+
+          <span>
+            01
+          </span>
+
+          <div>
+
+            <h3>
+              Creator First
+            </h3>
+
+            <p>
+              We build partnerships around the creator,
+              their content and their audience.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 02 -->
+
+        <div class="about-point">
+
+          <span>
+            02
+          </span>
+
+          <div>
+
+            <h3>
+              Brand Focused
+            </h3>
+
+            <p>
+              We connect brands with creators that can
+              naturally fit their campaign objectives.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 03 -->
+
+        <div class="about-point">
+
+          <span>
+            03
+          </span>
+
+          <div>
+
+            <h3>
+              Long-Term Vision
+            </h3>
+
+            <p>
+              We focus on building relationships that can
+              grow beyond a single campaign.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
 
     </div>
 
