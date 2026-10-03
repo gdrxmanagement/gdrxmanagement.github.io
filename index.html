@@ -32,6 +32,7 @@
       text-decoration: none;
     }
 
+
     /* =========================
        HEADER
     ========================= */
@@ -40,15 +41,20 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+
       background: rgba(8, 8, 8, 0.88);
+
       backdrop-filter: blur(18px);
+
       border-bottom: 1px solid #1d1d1d;
     }
 
     .nav {
       max-width: 1200px;
       margin: auto;
+
       padding: 20px 30px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -68,6 +74,7 @@
     nav a {
       color: #bdbdbd;
       font-size: 14px;
+
       transition: 0.3s;
     }
 
@@ -82,10 +89,13 @@
 
     .hero {
       min-height: 88vh;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
+
       padding: 90px 25px;
 
       position: relative;
@@ -105,6 +115,7 @@
       content: "";
 
       position: absolute;
+
       width: 600px;
       height: 600px;
 
@@ -128,6 +139,7 @@
       content: "";
 
       position: absolute;
+
       width: 900px;
       height: 1px;
 
@@ -136,15 +148,17 @@
 
       transform: translate(-50%, -50%);
 
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.08),
-        transparent
-      );
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.08),
+          transparent
+        );
     }
 
     @keyframes heroPulse {
+
       0%, 100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.5;
@@ -154,22 +168,28 @@
         transform: translate(-50%, -50%) scale(1.08);
         opacity: 1;
       }
+
     }
 
     .hero-content {
       max-width: 950px;
+
       position: relative;
+
       z-index: 2;
     }
 
     .hero-brand {
       display: inline-flex;
+
       align-items: center;
+
       gap: 9px;
 
       padding: 8px 14px;
 
       border: 1px solid #292929;
+
       border-radius: 100px;
 
       background: rgba(255,255,255,0.025);
@@ -177,7 +197,9 @@
       color: #a0a0a0;
 
       font-size: 10px;
+
       font-weight: 700;
+
       letter-spacing: 3px;
 
       margin-bottom: 28px;
@@ -204,6 +226,7 @@
       color: #737373;
 
       font-size: 11px;
+
       font-weight: 700;
 
       letter-spacing: 4px;
@@ -248,7 +271,9 @@
 
     .hero-button {
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
 
       margin-top: 40px;
@@ -256,11 +281,13 @@
       padding: 15px 28px;
 
       background: #ffffff;
+
       color: #000000;
 
       border-radius: 5px;
 
       font-size: 13px;
+
       font-weight: 800;
 
       letter-spacing: 0.8px;
@@ -284,16 +311,21 @@
       margin-top: 55px;
 
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       gap: 12px;
 
       color: #5d5d5d;
 
       font-size: 10px;
+
       font-weight: 700;
 
       letter-spacing: 2px;
+
       text-transform: uppercase;
     }
 
@@ -311,7 +343,9 @@
 
     section {
       max-width: 1200px;
+
       margin: auto;
+
       padding: 110px 30px;
     }
 
@@ -319,7 +353,9 @@
       color: #777777;
 
       font-size: 12px;
+
       letter-spacing: 3px;
+
       font-weight: 700;
 
       margin-bottom: 15px;
@@ -340,9 +376,11 @@
 
     .stats {
       border-top: 1px solid #222222;
+
       border-bottom: 1px solid #222222;
 
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
     }
 
@@ -360,18 +398,52 @@
 
     .stat h3 {
       font-size: 38px;
+
       margin-bottom: 7px;
     }
 
     .stat p {
       color: #777777;
+
       font-size: 13px;
     }
 
 
     /* =========================
-       CREATOR GRID
+       CREATOR SECTION
     ========================= */
+
+    #creators {
+      position: relative;
+    }
+
+    .creator-heading {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-end;
+
+      gap: 30px;
+
+      margin-bottom: 55px;
+    }
+
+    .creator-heading .section-title {
+      margin-bottom: 0;
+    }
+
+    .creator-heading-note {
+      max-width: 300px;
+
+      color: #666666;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+
+      text-align: right;
+    }
 
     .creator-grid {
       display: grid;
@@ -383,7 +455,7 @@
 
 
     /* =========================
-       CREATOR CARD
+       PREMIUM CREATOR CARD
     ========================= */
 
     .creator-card {
@@ -391,24 +463,59 @@
 
       overflow: hidden;
 
-      min-height: 570px;
+      min-height: 590px;
 
       border: 1px solid #242424;
 
-      border-radius: 12px;
+      border-radius: 14px;
 
-      background: #111111;
+      background:
+        linear-gradient(
+          145deg,
+          #151515,
+          #0d0d0d
+        );
 
-      transition: 0.4s ease;
+      transition:
+        transform 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease;
+    }
+
+    .creator-card::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.035),
+          transparent 35%
+        );
+
+      opacity: 0;
+
+      transition: opacity 0.45s ease;
+
+      z-index: 1;
     }
 
     .creator-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
 
-      border-color: #444444;
+      border-color: #414141;
 
       box-shadow:
-        0 20px 60px rgba(0,0,0,0.35);
+        0 25px 70px rgba(0,0,0,0.45);
+    }
+
+    .creator-card:hover::before {
+      opacity: 1;
     }
 
 
@@ -428,6 +535,7 @@
 
     .creator-image img {
       width: 100%;
+
       height: 100%;
 
       display: block;
@@ -436,11 +544,15 @@
 
       object-position: center center;
 
-      transition: transform 0.6s ease;
+      transition:
+        transform 0.8s cubic-bezier(.2,.7,.2,1),
+        filter 0.5s ease;
     }
 
     .creator-card:hover .creator-image img {
-      transform: scale(1.035);
+      transform: scale(1.045);
+
+      filter: brightness(1.04);
     }
 
     .creator-image::after {
@@ -455,10 +567,41 @@
       background:
         linear-gradient(
           to top,
-          rgba(8,8,8,0.72),
-          rgba(8,8,8,0.04) 58%,
+          rgba(8,8,8,0.94) 0%,
+          rgba(8,8,8,0.60) 22%,
+          rgba(8,8,8,0.08) 65%,
           rgba(8,8,8,0) 100%
         );
+    }
+
+    .creator-image-label {
+      position: absolute;
+
+      top: 18px;
+
+      left: 18px;
+
+      z-index: 3;
+
+      padding: 7px 11px;
+
+      border: 1px solid rgba(255,255,255,0.15);
+
+      border-radius: 4px;
+
+      background: rgba(0,0,0,0.48);
+
+      backdrop-filter: blur(10px);
+
+      color: #c8c8c8;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
     }
 
 
@@ -467,47 +610,73 @@
     ========================= */
 
     .creator-info {
-      padding: 28px;
+      padding: 27px 28px 30px;
 
       position: relative;
 
-      z-index: 2;
+      z-index: 4;
+    }
+
+    .creator-topline {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 8px;
     }
 
     .creator-tag {
       color: #777777;
 
-      font-size: 11px;
+      font-size: 10px;
 
       letter-spacing: 2px;
 
       font-weight: 700;
 
       text-transform: uppercase;
+    }
 
-      margin-bottom: 8px;
+    .creator-status {
+      color: #5f5f5f;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
     }
 
     .creator-name {
-      font-size: 30px;
+      font-size: 31px;
 
-      margin-bottom: 8px;
+      line-height: 1.1;
+
+      letter-spacing: -0.8px;
+
+      margin-bottom: 10px;
     }
 
     .creator-description {
-      color: #8d8d8d;
+      color: #9a9a9a;
 
       font-size: 14px;
 
-      margin-bottom: 5px;
+      margin-bottom: 3px;
     }
 
     .creator-location {
       color: #666666;
 
-      font-size: 13px;
+      font-size: 12px;
 
-      margin-bottom: 20px;
+      margin-bottom: 21px;
     }
 
 
@@ -518,7 +687,7 @@
     .creator-buttons {
       display: flex;
 
-      gap: 10px;
+      gap: 9px;
 
       flex-wrap: wrap;
     }
@@ -530,7 +699,7 @@
 
       border-radius: 5px;
 
-      font-size: 11px;
+      font-size: 10px;
 
       font-weight: 700;
 
@@ -751,6 +920,20 @@
         border-bottom: none;
       }
 
+      .creator-heading {
+        display: block;
+
+        margin-bottom: 40px;
+      }
+
+      .creator-heading-note {
+        max-width: 450px;
+
+        margin-top: 18px;
+
+        text-align: left;
+      }
+
       .creator-grid {
         grid-template-columns: 1fr;
       }
@@ -771,9 +954,18 @@
         height: 400px;
       }
 
+      .creator-info {
+        padding: 25px 22px 28px;
+      }
+
+      .creator-name {
+        font-size: 28px;
+      }
+
       .contact-box {
         padding: 40px 20px;
       }
+
     }
 
   </style>
@@ -935,7 +1127,7 @@
 
   <!-- =========================
        CREATORS
-  ========================= -->
+    ========================= -->
 
   <section id="creators">
 
@@ -943,9 +1135,19 @@
       OUR CREATORS
     </div>
 
-    <h2 class="section-title">
-      Built around influential creators.
-    </h2>
+
+    <div class="creator-heading">
+
+      <h2 class="section-title">
+        Built around influential creators.
+      </h2>
+
+      <p class="creator-heading-note">
+        A focused creator roster built for authentic
+        brand partnerships and high-impact campaigns.
+      </p>
+
+    </div>
 
 
     <div class="creator-grid">
@@ -959,6 +1161,10 @@
 
         <div class="creator-image">
 
+          <span class="creator-image-label">
+            GAMING
+          </span>
+
           <img
             src="black-flag-army.png"
             alt="Black Flag Army creator portrait"
@@ -970,17 +1176,28 @@
 
         <div class="creator-info">
 
-          <div class="creator-tag">
-            Gaming Creator
+          <div class="creator-topline">
+
+            <div class="creator-tag">
+              Gaming Creator
+            </div>
+
+            <div class="creator-status">
+              GDRX Creator
+            </div>
+
           </div>
+
 
           <h3 class="creator-name">
             Black Flag Army
           </h3>
 
+
           <p class="creator-description">
             10M+ YouTube Subscribers
           </p>
+
 
           <p class="creator-location">
             India
@@ -1034,6 +1251,10 @@
 
         <div class="creator-image">
 
+          <span class="creator-image-label">
+            GAMING • BEAUTY • LIFESTYLE
+          </span>
+
           <img
             src="aawari.png"
             alt="Aawari creator portrait"
@@ -1045,17 +1266,28 @@
 
         <div class="creator-info">
 
-          <div class="creator-tag">
-            Gaming • Beauty • Lifestyle
+          <div class="creator-topline">
+
+            <div class="creator-tag">
+              Gaming • Beauty • Lifestyle
+            </div>
+
+            <div class="creator-status">
+              GDRX Creator
+            </div>
+
           </div>
+
 
           <h3 class="creator-name">
             Aawari
           </h3>
 
+
           <p class="creator-description">
             493K YouTube Subscribers
           </p>
+
 
           <p class="creator-location">
             India
