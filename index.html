@@ -54,17 +54,47 @@
       max-width: 1200px;
       margin: auto;
 
-      padding: 20px 30px;
+      padding: 16px 30px;
 
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
+    /* =========================
+       GDRX LOGO
+    ========================= */
+
     .logo {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 2px;
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      height: 42px;
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .logo img {
+      display: block;
+
+      width: auto;
+
+      height: 42px;
+
+      max-width: 190px;
+
+      object-fit: contain;
+    }
+
+    .logo:hover {
+      opacity: 0.85;
+
+      transform: translateY(-1px);
     }
 
     nav {
@@ -1450,6 +1480,18 @@
 
       .nav {
         justify-content: center;
+
+        padding: 14px 20px;
+      }
+
+      .logo {
+        height: 38px;
+      }
+
+      .logo img {
+        height: 38px;
+
+        max-width: 175px;
       }
 
       .hero {
@@ -1669,7 +1711,7 @@
 </head>
 
 
-<body>
+<body id="top">
 
 
   <!-- =========================
@@ -1680,9 +1722,18 @@
 
     <div class="nav">
 
-      <div class="logo">
-        GDRX MANAGEMENT
-      </div>
+      <a
+        class="logo"
+        href="#top"
+        aria-label="GDRX Management Home"
+      >
+
+        <img
+          src="gdrx-logo.png"
+          alt="GDRX Management Logo"
+        >
+
+      </a>
 
       <nav>
 
@@ -2550,4 +2601,3 @@
 
 </body>
 </html>
-```
