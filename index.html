@@ -3,36 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDRX Management</title>
+
+    <title>GDRX Management | Creator Management & Brand Partnerships</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 8%;
+            max-width: 1000px;
+        }
+
+        .hero span {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 19px;
+            color: #bdbdbd;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            width: fit-content;
+            padding: 14px 25px;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        section {
+            padding: 90px 8%;
+            border-top: 1px solid #222;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .section-text {
+            max-width: 700px;
+            color: #bdbdbd;
+            font-size: 17px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 45px;
+        }
+
+        .stat {
+            border: 1px solid #222;
+            padding: 30px;
+        }
+
+        .stat h3 {
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        .stat p {
+            color: #999;
+        }
+
+        .creator-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .creator {
+            border: 1px solid #222;
+            padding: 35px;
+        }
+
+        .creator h3 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .creator p {
+            color: #aaa;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 45px;
+        }
+
+        .service {
+            border: 1px solid #222;
+            padding: 28px;
+        }
+
+        .service h3 {
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #999;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin: 15px 0 30px;
+        }
+
+        footer {
+            padding: 30px 8%;
+            border-top: 1px solid #222;
+            color: #777;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .stats,
+            .creator-grid,
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>GDRX Management</h1>
+<header>
+    <div class="logo">GDRX</div>
 
-    <h2>Creator Management Team</h2>
+    <nav>
+        <a href="#creators">Creators</a>
+        <a href="#brands">For Brands</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <p>
-        GDRX Management represents established creators
-        and connects them with brands for creator partnerships.
-    </p>
+<main>
 
-    <h2>Creators</h2>
+    <section class="hero">
 
-    <p>Gaming • Content • Influencer Partnerships</p>
+        <span>Creator Management & Brand Partnerships</span>
 
-    <h2>For Brands</h2>
+        <h1>GDRX<br>Management</h1>
 
-    <p>
-        For brand collaborations, sponsorships and creator campaigns,
-        contact our team.
-    </p>
+        <p>
+            We represent established creators and connect them
+            with brands through authentic, creator-led campaigns.
+        </p>
 
-    <h2>Contact</h2>
+        <a class="button" href="#contact">Work With Us</a>
 
-    <p>
-        Email: gdrx.management@gmail.com
-    </p>
+    </section>
+
+
+    <section>
+
+        <h2 class="section-title">Built for creators. Connected with brands.</h2>
+
+        <p class="section-text">
+            GDRX Management is a creator management team focused on
+            building meaningful partnerships between creators and brands
+            across gaming, entertainment, lifestyle and digital platforms.
+        </p>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h3>10M+</h3>
+                <p>YouTube Subscribers</p>
+            </div>
+
+            <div class="stat">
+                <h3>70M+</h3>
+                <p>YouTube Views in the Last 28 Days*</p>
+            </div>
+
+            <div class="stat">
+                <h3>India</h3>
+                <p>Primary Creator Market</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="creators">
+
+        <h2 class="section-title">Creators</h2>
+
+        <p class="section-text">
+            A growing portfolio of creators across gaming,
+            beauty, lifestyle and digital entertainment.
+        </p>
+
+        <div class="creator-grid">
+
+            <div class="creator">
+
+                <h3>Black Flag Army</h3>
+
+                <p>
+                    Gaming Creator<br>
+                    10M+ YouTube Subscribers<br>
+                    India
+                </p>
+
+            </div>
+
+
+            <div class="creator">
+
+                <h3>Aawari</h3>
+
+                <p>
+                    Gaming • Beauty • Lifestyle<br>
+                    493K YouTube Subscribers<br>
+                    India
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="brands">
+
+        <h2 class="section-title">For Brands</h2>
+
+        <p class="section-text">
+            We help brands work with relevant creators through
+            structured, authentic and campaign-focused collaborations.
+        </p>
+
+        <div class="services">
+
+            <div class="service">
+                <h3>Sponsored Content</h3>
+                <p>
+                    Creator-led sponsored videos and integrated campaigns.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Product Integrations</h3>
+                <p>
+                    Natural product placement within creator content.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Short-form Content</h3>
+                <p>
+                    YouTube Shorts, Reels and other short-form activations.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Livestream Activations</h3>
+                <p>
+                    Gaming livestream campaigns and promotional activations.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Creator Campaigns</h3>
+                <p>
+                    Campaign coordination between brands and creators.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>India Market</h3>
+                <p>
+                    Creator partnerships focused on the Indian audience.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="about">
+
+        <h2 class="section-title">About GDRX</h2>
+
+        <p class="section-text">
+            GDRX Management is a creator management team based in India.
+            We work with established digital creators and explore
+            partnership opportunities with brands, gaming companies
+            and consumer-focused businesses.
+        </p>
+
+    </section>
+
+
+    <section id="contact" class="contact">
+
+        <h2 class="section-title">Let's Work Together</h2>
+
+        <p>
+            For creator partnerships, campaigns and business enquiries,
+            contact the GDRX Management Team.
+        </p>
+
+        <a class="button" href="mailto:gdrx.management@gmail.com">
+            gdrx.management@gmail.com
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    © 2026 GDRX Management. All rights reserved.
+
+    <br><br>
+
+    *YouTube Studio data, last 28 days, as of 25 September 2026.
+
+</footer>
 
 </body>
 </html>
