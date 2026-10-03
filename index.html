@@ -9,6 +9,7 @@
   <meta name="description" content="GDRX Management connects leading creators with brands through high-impact, authentic and creator-led partnerships.">
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -727,45 +728,274 @@
 
 
     /* =========================
-       SERVICES
+       FOR BRANDS
     ========================= */
 
-    .services {
+    #brands {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #brands::before {
+      content: "";
+
+      position: absolute;
+
+      width: 520px;
+      height: 520px;
+
+      right: -280px;
+      top: 120px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,0.025);
+
+      box-shadow:
+        0 0 100px rgba(255,255,255,0.025);
+
+      pointer-events: none;
+    }
+
+    .brands-heading {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-end;
+
+      gap: 40px;
+
+      margin-bottom: 55px;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .brands-heading-left {
+      max-width: 720px;
+    }
+
+    .brands-heading .section-title {
+      margin-bottom: 0;
+    }
+
+    .brands-intro {
+      max-width: 330px;
+
+      color: #777777;
+
+      font-size: 13px;
+
+      line-height: 1.8;
+
+      text-align: right;
+    }
+
+
+    /* =========================
+       BRAND SERVICES
+    ========================= */
+
+    .brand-services {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 12px;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .brand-service {
+      position: relative;
+
+      min-height: 205px;
+
+      padding: 34px;
+
+      border: 1px solid #242424;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #121212,
+          #0b0b0b
+        );
+
+      overflow: hidden;
+
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .brand-service::before {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      right: -90px;
+      top: -90px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,0.035);
+
+      transition: transform 0.5s ease;
+    }
+
+    .brand-service:hover {
+      transform: translateY(-6px);
+
+      border-color: #3c3c3c;
+
+      background:
+        linear-gradient(
+          145deg,
+          #171717,
+          #0d0d0d
+        );
+
+      box-shadow:
+        0 20px 55px rgba(0,0,0,0.35);
+    }
+
+    .brand-service:hover::before {
+      transform: scale(1.35);
+    }
+
+    .brand-service-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      gap: 20px;
+
+      margin-bottom: 28px;
+    }
+
+    .brand-service-number {
+      color: #555555;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+    }
+
+    .brand-service-arrow {
+      color: #555555;
+
+      font-size: 18px;
+
+      line-height: 1;
+
+      transition:
+        transform 0.35s ease,
+        color 0.35s ease;
+    }
+
+    .brand-service:hover .brand-service-arrow {
+      color: #ffffff;
+
+      transform: translate(3px, -3px);
+    }
+
+    .brand-service h3 {
+      font-size: 21px;
+
+      letter-spacing: -0.4px;
+
+      margin-bottom: 9px;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .brand-service p {
+      max-width: 450px;
+
+      color: #777777;
+
+      font-size: 13px;
+
+      line-height: 1.75;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+
+    /* =========================
+       BRAND VALUE STRIP
+    ========================= */
+
+    .brand-value-strip {
+      margin-top: 12px;
+
       display: grid;
 
       grid-template-columns: repeat(3, 1fr);
 
-      gap: 1px;
+      border: 1px solid #242424;
 
-      background: #252525;
+      border-radius: 10px;
 
-      border: 1px solid #252525;
+      background: #0b0b0b;
+
+      overflow: hidden;
+
+      position: relative;
+
+      z-index: 2;
     }
 
-    .service {
-      background: #0d0d0d;
+    .brand-value {
+      padding: 28px 30px;
 
-      padding: 35px;
-
-      min-height: 160px;
-
-      transition: 0.3s;
+      border-right: 1px solid #242424;
     }
 
-    .service:hover {
-      background: #151515;
+    .brand-value:last-child {
+      border-right: none;
     }
 
-    .service h3 {
-      font-size: 17px;
+    .brand-value span {
+      display: block;
 
-      margin-bottom: 10px;
+      color: #555555;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 8px;
     }
 
-    .service p {
-      color: #777777;
+    .brand-value strong {
+      font-size: 14px;
 
-      font-size: 13px;
+      font-weight: 700;
     }
 
 
@@ -938,14 +1168,6 @@
         grid-template-columns: 1fr;
       }
 
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 80px 20px;
-      }
-
       .creator-card {
         min-height: 550px;
       }
@@ -960,6 +1182,52 @@
 
       .creator-name {
         font-size: 28px;
+      }
+
+
+      /* MOBILE BRANDS */
+
+      .brands-heading {
+        display: block;
+
+        margin-bottom: 40px;
+      }
+
+      .brands-intro {
+        max-width: 500px;
+
+        margin-top: 20px;
+
+        text-align: left;
+      }
+
+      .brand-services {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-service {
+        min-height: 190px;
+
+        padding: 28px 24px;
+      }
+
+      .brand-value-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-value {
+        border-right: none;
+
+        border-bottom: 1px solid #242424;
+      }
+
+      .brand-value:last-child {
+        border-bottom: none;
+      }
+
+
+      section {
+        padding: 80px 20px;
       }
 
       .contact-box {
@@ -1127,7 +1395,7 @@
 
   <!-- =========================
        CREATORS
-    ========================= -->
+  ========================= -->
 
   <section id="creators">
 
@@ -1153,9 +1421,7 @@
     <div class="creator-grid">
 
 
-      <!-- =========================
-           BLACK FLAG ARMY
-      ========================= -->
+      <!-- BLACK FLAG ARMY -->
 
       <div class="creator-card">
 
@@ -1228,7 +1494,7 @@
 
             <a
               class="creator-button"
-              href="https://www.instagram.com/aawaragamer07/"
+              href="https://www.instagram.com/aawarigamer07/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1243,9 +1509,7 @@
 
 
 
-      <!-- =========================
-           AAWARI
-      ========================= -->
+      <!-- AAWARI -->
 
       <div class="creator-card">
 
@@ -1338,95 +1602,258 @@
       FOR BRANDS
     </div>
 
-    <h2 class="section-title">
 
-      Creator-led campaigns<br>
+    <div class="brands-heading">
 
-      that actually connect.
+      <div class="brands-heading-left">
 
-    </h2>
+        <h2 class="section-title">
+          Creator campaigns<br>
+          built to connect.
+        </h2>
+
+      </div>
 
 
-    <div class="services">
+      <p class="brands-intro">
+
+        From integrated content to livestream activations,
+        GDRX helps brands build creator partnerships that
+        feel natural to the audience and aligned with the campaign.
+
+      </p>
+
+    </div>
 
 
-      <div class="service">
+
+    <div class="brand-services">
+
+
+      <!-- 01 -->
+
+      <div class="brand-service">
+
+        <div class="brand-service-top">
+
+          <span class="brand-service-number">
+            01 / CONTENT
+          </span>
+
+          <span class="brand-service-arrow">
+            ↗
+          </span>
+
+        </div>
+
 
         <h3>
           Sponsored Content
         </h3>
 
         <p>
-          Authentic integrations designed around the creator's audience.
+          Authentic creator integrations designed around
+          the creator's voice, audience and content style.
         </p>
 
       </div>
 
 
-      <div class="service">
+
+      <!-- 02 -->
+
+      <div class="brand-service">
+
+        <div class="brand-service-top">
+
+          <span class="brand-service-number">
+            02 / PRODUCT
+          </span>
+
+          <span class="brand-service-arrow">
+            ↗
+          </span>
+
+        </div>
+
 
         <h3>
           Product Integrations
         </h3>
 
         <p>
-          Natural product placements inside high-performing content.
+          Natural product placements built into creator
+          content without compromising the viewing experience.
         </p>
 
       </div>
 
 
-      <div class="service">
+
+      <!-- 03 -->
+
+      <div class="brand-service">
+
+        <div class="brand-service-top">
+
+          <span class="brand-service-number">
+            03 / SHORT-FORM
+          </span>
+
+          <span class="brand-service-arrow">
+            ↗
+          </span>
+
+        </div>
+
 
         <h3>
           Short-form Content
         </h3>
 
         <p>
-          Short-form creator content built for reach and engagement.
+          Creator-led short-form content designed for
+          discovery, reach and audience engagement.
         </p>
 
       </div>
 
 
-      <div class="service">
+
+      <!-- 04 -->
+
+      <div class="brand-service">
+
+        <div class="brand-service-top">
+
+          <span class="brand-service-number">
+            04 / LIVE
+          </span>
+
+          <span class="brand-service-arrow">
+            ↗
+          </span>
+
+        </div>
+
 
         <h3>
           Livestream Activations
         </h3>
 
         <p>
-          Creator-led livestream campaigns and brand activations.
+          Creator-led livestream campaigns and activations
+          that put brands directly into the conversation.
         </p>
 
       </div>
 
 
-      <div class="service">
+
+      <!-- 05 -->
+
+      <div class="brand-service">
+
+        <div class="brand-service-top">
+
+          <span class="brand-service-number">
+            05 / CAMPAIGNS
+          </span>
+
+          <span class="brand-service-arrow">
+            ↗
+          </span>
+
+        </div>
+
 
         <h3>
           Creator Campaigns
         </h3>
 
         <p>
-          End-to-end creator partnerships tailored to campaign goals.
+          Structured creator partnerships tailored around
+          campaign objectives, content requirements and audience fit.
         </p>
 
       </div>
 
 
-      <div class="service">
+
+      <!-- 06 -->
+
+      <div class="brand-service">
+
+        <div class="brand-service-top">
+
+          <span class="brand-service-number">
+            06 / INDIA
+          </span>
+
+          <span class="brand-service-arrow">
+            ↗
+          </span>
+
+        </div>
+
 
         <h3>
           India Market
         </h3>
 
         <p>
-          Access to a highly engaged India-focused creator audience.
+          Access to an India-focused creator audience through
+          established gaming, lifestyle and entertainment creators.
         </p>
 
       </div>
 
+
+    </div>
+
+
+
+    <!-- BRAND VALUE STRIP -->
+
+    <div class="brand-value-strip">
+
+      <div class="brand-value">
+
+        <span>
+          Creator Network
+        </span>
+
+        <strong>
+          High-reach creators
+        </strong>
+
+      </div>
+
+
+      <div class="brand-value">
+
+        <span>
+          Campaign Focus
+        </span>
+
+        <strong>
+          Authentic brand integrations
+        </strong>
+
+      </div>
+
+
+      <div class="brand-value">
+
+        <span>
+          Core Market
+        </span>
+
+        <strong>
+          India-focused audiences
+        </strong>
+
+      </div>
 
     </div>
 
