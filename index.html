@@ -31,7 +31,10 @@
       text-decoration: none;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
       position: sticky;
       top: 0;
@@ -71,7 +74,11 @@
       color: #ffffff;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
       min-height: 88vh;
       display: flex;
@@ -79,8 +86,13 @@
       justify-content: center;
       text-align: center;
       padding: 80px 25px;
+
       background:
-        radial-gradient(circle at center, #181818 0%, #080808 55%);
+        radial-gradient(
+          circle at center,
+          #181818 0%,
+          #080808 55%
+        );
     }
 
     .hero-content {
@@ -114,11 +126,15 @@
       display: inline-block;
       margin-top: 38px;
       padding: 15px 28px;
+
       background: #ffffff;
       color: #000000;
+
       border-radius: 5px;
+
       font-size: 14px;
       font-weight: 700;
+
       transition: 0.3s;
     }
 
@@ -127,7 +143,11 @@
       background: #dddddd;
     }
 
-    /* GENERAL */
+
+    /* =========================
+       GENERAL
+    ========================= */
+
     section {
       max-width: 1200px;
       margin: auto;
@@ -148,10 +168,15 @@
       margin-bottom: 55px;
     }
 
-    /* STATS */
+
+    /* =========================
+       STATS
+    ========================= */
+
     .stats {
       border-top: 1px solid #222222;
       border-bottom: 1px solid #222222;
+
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
@@ -176,21 +201,33 @@
       font-size: 13px;
     }
 
-    /* CREATOR GRID */
+
+    /* =========================
+       CREATOR GRID
+    ========================= */
+
     .creator-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 28px;
     }
 
-    /* CREATOR CARD */
+
+    /* =========================
+       CREATOR CARD
+    ========================= */
+
     .creator-card {
       position: relative;
       overflow: hidden;
+
       min-height: 570px;
+
       border: 1px solid #242424;
       border-radius: 12px;
+
       background: #111111;
+
       transition: 0.4s ease;
     }
 
@@ -199,49 +236,76 @@
       border-color: #444444;
     }
 
-    /* IMAGE PLACEHOLDER */
+
+    /* =========================
+       CREATOR IMAGE
+    ========================= */
+
     .creator-image {
-      height: 390px;
+      height: 430px;
+
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at center, #292929 0%, #111111 55%, #080808 100%);
+
+      background: #111111;
     }
+
+    .creator-image img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+      object-position: center center;
+
+      transition: transform 0.6s ease;
+    }
+
+    .creator-card:hover .creator-image img {
+      transform: scale(1.035);
+    }
+
+    /* Dark cinematic gradient over image */
 
     .creator-image::after {
       content: "";
+
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(8,8,8,0.95),
-        rgba(8,8,8,0.05) 65%
-      );
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(8, 8, 8, 0.72),
+          rgba(8, 8, 8, 0.04) 58%,
+          rgba(8, 8, 8, 0) 100%
+        );
     }
 
-    .image-placeholder {
-      color: #555555;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      z-index: 1;
-    }
+
+    /* =========================
+       CREATOR INFO
+    ========================= */
 
     .creator-info {
       padding: 28px;
+
       position: relative;
       z-index: 2;
     }
 
     .creator-tag {
       color: #777777;
+
       font-size: 11px;
       letter-spacing: 2px;
       font-weight: 700;
+
       text-transform: uppercase;
+
       margin-bottom: 8px;
     }
 
@@ -262,6 +326,11 @@
       margin-bottom: 20px;
     }
 
+
+    /* =========================
+       CREATOR BUTTONS
+    ========================= */
+
     .creator-buttons {
       display: flex;
       gap: 10px;
@@ -270,10 +339,13 @@
 
     .creator-button {
       padding: 10px 17px;
+
       border: 1px solid #333333;
       border-radius: 4px;
+
       font-size: 12px;
       font-weight: 700;
+
       transition: 0.3s;
     }
 
@@ -283,19 +355,29 @@
       border-color: #ffffff;
     }
 
-    /* SERVICES */
+
+    /* =========================
+       SERVICES
+    ========================= */
+
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+
       gap: 1px;
+
       background: #252525;
+
       border: 1px solid #252525;
     }
 
     .service {
       background: #0d0d0d;
+
       padding: 35px;
+
       min-height: 160px;
+
       transition: 0.3s;
     }
 
@@ -313,23 +395,41 @@
       font-size: 13px;
     }
 
-    /* ABOUT */
+
+    /* =========================
+       ABOUT
+    ========================= */
+
     .about {
       max-width: 850px;
     }
 
     .about p {
       color: #999999;
+
       font-size: 19px;
+
       line-height: 1.9;
     }
 
-    /* CONTACT */
+
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact-box {
       border: 1px solid #252525;
       border-radius: 10px;
+
       padding: 60px;
-      background: linear-gradient(135deg, #111111, #0b0b0b);
+
+      background:
+        linear-gradient(
+          135deg,
+          #111111,
+          #0b0b0b
+        );
+
       text-align: center;
     }
 
@@ -345,10 +445,14 @@
 
     .contact-email {
       display: inline-block;
+
       font-size: 18px;
       font-weight: 700;
+
       border-bottom: 1px solid #555555;
+
       padding-bottom: 5px;
+
       transition: 0.3s;
     }
 
@@ -357,12 +461,20 @@
       border-color: #ffffff;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       border-top: 1px solid #1e1e1e;
+
       padding: 35px 30px;
+
       text-align: center;
+
       color: #555555;
+
       font-size: 12px;
     }
 
@@ -370,7 +482,11 @@
       margin-bottom: 7px;
     }
 
-    /* MOBILE */
+
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 800px) {
 
       nav {
@@ -419,34 +535,63 @@
       }
 
       .creator-image {
-        height: 360px;
+        height: 400px;
       }
 
       .contact-box {
         padding: 40px 20px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
+
     <div class="nav">
-      <div class="logo">GDRX MANAGEMENT</div>
+
+      <div class="logo">
+        GDRX MANAGEMENT
+      </div>
 
       <nav>
-        <a href="#creators">Creators</a>
-        <a href="#brands">For Brands</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#creators">
+          Creators
+        </a>
+
+        <a href="#brands">
+          For Brands
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
       </nav>
+
     </div>
+
   </header>
 
 
-  <!-- HERO -->
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
   <section class="hero">
 
     <div class="hero-content">
@@ -456,7 +601,8 @@
       </span>
 
       <h1>
-        GDRX<br>Management
+        GDRX<br>
+        Management
       </h1>
 
       <p>
@@ -464,7 +610,10 @@
         high-impact, authentic and creator-led partnerships.
       </p>
 
-      <a class="hero-button" href="#contact">
+      <a
+        class="hero-button"
+        href="#contact"
+      >
         WORK WITH US
       </a>
 
@@ -473,24 +622,53 @@
   </section>
 
 
-  <!-- STATS -->
-  <section style="padding-top: 0; padding-bottom: 0;">
+
+  <!-- =========================
+       STATS
+  ========================= -->
+
+  <section
+    style="padding-top: 0; padding-bottom: 0;"
+  >
 
     <div class="stats">
 
       <div class="stat">
-        <h3>10M+</h3>
-        <p>YouTube Subscribers</p>
+
+        <h3>
+          10M+
+        </h3>
+
+        <p>
+          YouTube Subscribers
+        </p>
+
       </div>
 
-      <div class="stat">
-        <h3>70M+</h3>
-        <p>YouTube Views — Last 28 Days*</p>
-      </div>
 
       <div class="stat">
-        <h3>India</h3>
-        <p>Primary Creator Market</p>
+
+        <h3>
+          70M+
+        </h3>
+
+        <p>
+          YouTube Views — Last 28 Days*
+        </p>
+
+      </div>
+
+
+      <div class="stat">
+
+        <h3>
+          India
+        </h3>
+
+        <p>
+          Primary Creator Market
+        </p>
+
       </div>
 
     </div>
@@ -498,7 +676,11 @@
   </section>
 
 
-  <!-- CREATORS -->
+
+  <!-- =========================
+       CREATORS
+  ========================= -->
+
   <section id="creators">
 
     <div class="section-label">
@@ -513,25 +695,22 @@
     <div class="creator-grid">
 
 
-      <!-- BLACK FLAG ARMY -->
+      <!-- =========================
+           BLACK FLAG ARMY
+      ========================= -->
+
       <div class="creator-card">
 
         <div class="creator-image">
 
-          <!--
-          FUTURE IMAGE:
-          Replace this entire creator-image section with:
-
-          <img src="black-flag-army.jpg"
-               alt="Black Flag Army"
-               style="width:100%; height:100%; object-fit:cover;">
-          -->
-
-          <span class="image-placeholder">
-            CREATOR PHOTO
-          </span>
+          <img
+            src="black-flag-army.png"
+            alt="Black Flag Army creator portrait"
+            loading="lazy"
+          >
 
         </div>
+
 
         <div class="creator-info">
 
@@ -551,20 +730,24 @@
             India
           </p>
 
+
           <div class="creator-buttons">
 
             <a
               class="creator-button"
               href="https://www.youtube.com/@blackflagarmy9340"
               target="_blank"
+              rel="noopener noreferrer"
             >
               YOUTUBE
             </a>
+
 
             <a
               class="creator-button"
               href="https://www.instagram.com/aawarigamer07/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               INSTAGRAM
             </a>
@@ -576,25 +759,23 @@
       </div>
 
 
-      <!-- AAWARI -->
+
+      <!-- =========================
+           AAWARI
+      ========================= -->
+
       <div class="creator-card">
 
         <div class="creator-image">
 
-          <!--
-          FUTURE IMAGE:
-          Replace this entire creator-image section with:
-
-          <img src="aawari.jpg"
-               alt="Aawari"
-               style="width:100%; height:100%; object-fit:cover;">
-          -->
-
-          <span class="image-placeholder">
-            CREATOR PHOTO
-          </span>
+          <img
+            src="aawari.png"
+            alt="Aawari creator portrait"
+            loading="lazy"
+          >
 
         </div>
+
 
         <div class="creator-info">
 
@@ -614,20 +795,24 @@
             India
           </p>
 
+
           <div class="creator-buttons">
 
             <a
               class="creator-button"
               href="https://www.youtube.com/@Aawari07"
               target="_blank"
+              rel="noopener noreferrer"
             >
               YOUTUBE
             </a>
+
 
             <a
               class="creator-button"
               href="https://www.instagram.com/aawari007/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               INSTAGRAM
             </a>
@@ -644,7 +829,11 @@
   </section>
 
 
-  <!-- FOR BRANDS -->
+
+  <!-- =========================
+       FOR BRANDS
+  ========================= -->
+
   <section id="brands">
 
     <div class="section-label">
@@ -652,78 +841,130 @@
     </div>
 
     <h2 class="section-title">
+
       Creator-led campaigns<br>
+
       that actually connect.
+
     </h2>
+
 
     <div class="services">
 
+
       <div class="service">
-        <h3>Sponsored Content</h3>
+
+        <h3>
+          Sponsored Content
+        </h3>
+
         <p>
           Authentic integrations designed around the creator's audience.
         </p>
+
       </div>
 
+
       <div class="service">
-        <h3>Product Integrations</h3>
+
+        <h3>
+          Product Integrations
+        </h3>
+
         <p>
           Natural product placements inside high-performing content.
         </p>
+
       </div>
 
+
       <div class="service">
-        <h3>Short-form Content</h3>
+
+        <h3>
+          Short-form Content
+        </h3>
+
         <p>
           Short-form creator content built for reach and engagement.
         </p>
+
       </div>
 
+
       <div class="service">
-        <h3>Livestream Activations</h3>
+
+        <h3>
+          Livestream Activations
+        </h3>
+
         <p>
           Creator-led livestream campaigns and brand activations.
         </p>
+
       </div>
 
+
       <div class="service">
-        <h3>Creator Campaigns</h3>
+
+        <h3>
+          Creator Campaigns
+        </h3>
+
         <p>
           End-to-end creator partnerships tailored to campaign goals.
         </p>
+
       </div>
 
+
       <div class="service">
-        <h3>India Market</h3>
+
+        <h3>
+          India Market
+        </h3>
+
         <p>
           Access to a highly engaged India-focused creator audience.
         </p>
+
       </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- ABOUT -->
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
   <section id="about">
 
     <div class="section-label">
       ABOUT GDRX
     </div>
 
+
     <div class="about">
 
       <h2 class="section-title">
+
         Connecting talent<br>
+
         with opportunity.
+
       </h2>
 
+
       <p>
+
         GDRX Management is a creator management team focused on
         building meaningful partnerships between creators and brands.
         We help brands collaborate with the right creators while
         helping creators build long-term commercial opportunities.
+
       </p>
 
     </div>
@@ -731,7 +972,11 @@
   </section>
 
 
-  <!-- CONTACT -->
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
   <section id="contact">
 
     <div class="contact-box">
@@ -740,13 +985,16 @@
         LET'S WORK TOGETHER
       </div>
 
+
       <h2>
         Have a campaign?
       </h2>
 
+
       <p>
         Tell us about your brand, campaign or partnership opportunity.
       </p>
+
 
       <a
         class="contact-email"
@@ -760,7 +1008,11 @@
   </section>
 
 
-  <!-- FOOTER -->
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
 
     <p>
@@ -772,6 +1024,7 @@
     </p>
 
   </footer>
+
 
 </body>
 </html>
