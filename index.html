@@ -1665,11 +1665,309 @@
 
     }
 
+
+    /* =========================
+       GDRX PREMIUM MOTION SYSTEM
+    ========================= */
+
+    :root {
+      --motion-fast: 220ms;
+      --motion-mid: 500ms;
+      --motion-slow: 900ms;
+      --ease-premium: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    /* Elegant page entrance */
+    body {
+      animation: pageReveal 900ms var(--ease-premium) both;
+    }
+
+    @keyframes pageReveal {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Header becomes subtly more defined after scrolling */
+    header {
+      transition:
+        background 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+    }
+
+    header.scrolled {
+      background: rgba(8, 8, 8, 0.94);
+      border-bottom-color: #292929;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    }
+
+    /* Hero cinematic entrance */
+    .hero-brand,
+    .eyebrow,
+    .hero h1,
+    .hero p,
+    .hero-button,
+    .hero-trust {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: heroIn 900ms var(--ease-premium) forwards;
+    }
+
+    .hero-brand { animation-delay: 120ms; }
+    .eyebrow { animation-delay: 220ms; }
+    .hero h1 { animation-delay: 320ms; }
+    .hero p { animation-delay: 450ms; }
+    .hero-button { animation-delay: 570ms; }
+    .hero-trust { animation-delay: 690ms; }
+
+    @keyframes heroIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Ambient hero movement */
+    .hero::before {
+      animation:
+        heroPulse 7s ease-in-out infinite,
+        heroDrift 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroDrift {
+      from { margin-left: -8px; margin-top: -4px; }
+      to { margin-left: 8px; margin-top: 5px; }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition:
+        opacity 850ms var(--ease-premium),
+        transform 850ms var(--ease-premium);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered children */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(26px);
+      transition:
+        opacity 700ms var(--ease-premium),
+        transform 700ms var(--ease-premium);
+    }
+
+    .reveal-stagger.is-visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 60ms; }
+    .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 140ms; }
+    .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 220ms; }
+    .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+    .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 380ms; }
+    .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 460ms; }
+
+    /* Premium card shine */
+    .creator-card,
+    .brand-service,
+    .contact-box {
+      will-change: transform;
+    }
+
+    .creator-card::after,
+    .brand-service::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -140%;
+      width: 80%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(255,255,255,0.035) 45%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0.035) 55%,
+        transparent 100%
+      );
+      transform: skewX(-18deg);
+      transition: left 900ms var(--ease-premium);
+      z-index: 5;
+    }
+
+    .creator-card:hover::after,
+    .brand-service:hover::after {
+      left: 150%;
+    }
+
+    /* Image depth */
+    .creator-card:hover .creator-image img {
+      transform: scale(1.055);
+    }
+
+    /* Button micro interaction */
+    .hero-button,
+    .contact-button,
+    .creator-button {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-button::after,
+    .contact-button::after,
+    .creator-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-110%);
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255,255,255,0.22),
+        transparent
+      );
+      transition: transform 650ms var(--ease-premium);
+      pointer-events: none;
+    }
+
+    .hero-button:hover::after,
+    .contact-button:hover::after,
+    .creator-button:hover::after {
+      transform: translateX(110%);
+    }
+
+    /* Navigation underline */
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: #ffffff;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 350ms var(--ease-premium);
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Stats emphasis */
+    .stat {
+      transition:
+        background 350ms ease,
+        transform 350ms var(--ease-premium);
+    }
+
+    .stat:hover {
+      background: rgba(255,255,255,0.018);
+    }
+
+    .stat h3 {
+      transition: transform 500ms var(--ease-premium);
+    }
+
+    .stat:hover h3 {
+      transform: translateY(-3px);
+    }
+
+    /* About points */
+    .about-point {
+      transition:
+        padding-left 400ms var(--ease-premium),
+        background 400ms ease;
+    }
+
+    .about-point:hover {
+      padding-left: 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.018), transparent);
+    }
+
+    /* Contact ambient pulse */
+    .contact-box::before {
+      animation: contactGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes contactGlow {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; }
+    }
+
+    /* Scroll progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffffff;
+      z-index: 2000;
+      pointer-events: none;
+      transform-origin: left;
+    }
+
+    /* Respect accessibility preferences */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal,
+      .reveal-stagger > *,
+      .hero-brand,
+      .eyebrow,
+      .hero h1,
+      .hero p,
+      .hero-button,
+      .hero-trust {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .creator-card::after,
+      .brand-service::after {
+        display: none;
+      }
+
+      .about-point:hover {
+        padding-left: 0;
+      }
+    }
+
   </style>
 </head>
 
 
-<body>
+  <body>
+
+    <div class="scroll-progress" aria-hidden="true"></div>
 
 
   <!-- =========================
@@ -1826,7 +2124,7 @@
        CREATORS
   ========================= -->
 
-  <section id="creators">
+  <section id="creators" class="reveal">
 
     <div class="section-label">
       OUR CREATORS
@@ -1847,7 +2145,7 @@
     </div>
 
 
-    <div class="creator-grid">
+    <div class="creator-grid reveal-stagger">
 
 
       <!-- =========================
@@ -2029,7 +2327,7 @@
        FOR BRANDS
   ========================= -->
 
-  <section id="brands">
+  <section id="brands" class="reveal">
 
     <div class="section-label">
       FOR BRANDS
@@ -2060,7 +2358,7 @@
 
 
 
-    <div class="brand-services">
+    <div class="brand-services reveal-stagger">
 
 
       <!-- 01 -->
@@ -2248,7 +2546,7 @@
 
     <!-- BRAND VALUE STRIP -->
 
-    <div class="brand-value-strip">
+    <div class="brand-value-strip reveal-stagger">
 
       <div class="brand-value">
 
@@ -2298,14 +2596,14 @@
        ABOUT
   ========================= -->
 
-  <section id="about">
+  <section id="about" class="reveal">
 
     <div class="section-label">
       ABOUT GDRX
     </div>
 
 
-    <div class="about-premium">
+    <div class="about-premium reveal-stagger">
 
       <div class="about-main">
 
@@ -2424,7 +2722,7 @@
        PREMIUM CONTACT
   ========================= -->
 
-  <section id="contact">
+  <section id="contact" class="reveal">
 
     <div class="contact-box">
 
@@ -2483,7 +2781,7 @@
       </div>
 
 
-      <div class="contact-details">
+      <div class="contact-details reveal-stagger">
 
         <div class="contact-detail">
 
@@ -2535,7 +2833,7 @@
        FOOTER
   ========================= -->
 
-  <footer>
+  <footer class="reveal">
 
     <p>
       © 2026 GDRX Management. All rights reserved.
@@ -2547,6 +2845,72 @@
 
   </footer>
 
+
+
+  <script>
+    (() => {
+      const progress = document.querySelector('.scroll-progress');
+      const header = document.querySelector('header');
+
+      const updateScrollUI = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollable =
+          document.documentElement.scrollHeight - window.innerHeight;
+
+        if (progress) {
+          const percent = scrollable > 0
+            ? (scrollTop / scrollable) * 100
+            : 0;
+          progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+        }
+
+        if (header) {
+          header.classList.toggle('scrolled', scrollTop > 18);
+        }
+      };
+
+      window.addEventListener('scroll', updateScrollUI, { passive: true });
+      updateScrollUI();
+
+      const revealItems = document.querySelectorAll('.reveal, .reveal-stagger');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -60px 0px'
+        });
+
+        revealItems.forEach(item => observer.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add('is-visible'));
+      }
+
+      // Subtle pointer depth on desktop cards.
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.querySelectorAll('.creator-card, .brand-service').forEach(card => {
+          card.addEventListener('pointermove', event => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+            card.style.transform =
+              `translateY(-8px) perspective(900px) rotateX(${(-y * 1.5).toFixed(2)}deg) rotateY(${(x * 1.5).toFixed(2)}deg)`;
+          });
+
+          card.addEventListener('pointerleave', () => {
+            card.style.transform = '';
+          });
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
