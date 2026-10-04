@@ -410,6 +410,176 @@
 
 
     /* =========================
+       HOW GDRX WORKS
+    ========================= */
+
+    #how-it-works {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #how-it-works::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      left: -300px;
+      top: 70px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.025);
+      box-shadow: 0 0 100px rgba(255,255,255,0.02);
+      pointer-events: none;
+    }
+
+    .how-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 55px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-heading-left {
+      max-width: 720px;
+    }
+
+    .how-heading .section-title {
+      margin-bottom: 0;
+    }
+
+    .how-intro {
+      max-width: 350px;
+      color: #777777;
+      font-size: 13px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #242424;
+      border-bottom: 1px solid #242424;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-step {
+      position: relative;
+      min-height: 285px;
+      padding: 30px 28px 34px;
+      border-right: 1px solid #242424;
+      background: linear-gradient(145deg, #111111, #0a0a0a);
+      overflow: hidden;
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+
+    .how-step:last-child {
+      border-right: none;
+    }
+
+    .how-step::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: #ffffff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .45s ease;
+    }
+
+    .how-step:hover {
+      transform: translateY(-6px);
+      border-color: #333333;
+      background: linear-gradient(145deg, #151515, #0b0b0b);
+    }
+
+    .how-step:hover::after {
+      transform: scaleX(1);
+    }
+
+    .how-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 48px;
+      border: 1px solid #303030;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .how-kicker {
+      margin-bottom: 12px;
+      color: #777777;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .how-step h3 {
+      margin-bottom: 12px;
+      font-size: 23px;
+      letter-spacing: -0.6px;
+    }
+
+    .how-step p {
+      color: #777777;
+      font-size: 13px;
+      line-height: 1.8;
+      max-width: 235px;
+    }
+
+    .how-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      margin-top: 35px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-bottom-note {
+      color: #666666;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .how-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border: 1px solid #303030;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      transition: background .3s ease, border-color .3s ease, transform .3s ease;
+    }
+
+    .how-cta:hover {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #050505;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
        CREATOR SECTION
     ========================= */
 
@@ -1624,6 +1794,49 @@
       }
 
 
+      /* HOW GDRX WORKS */
+
+      .how-heading {
+        display: block;
+        margin-bottom: 35px;
+      }
+
+      .how-intro {
+        max-width: 100%;
+        margin-top: 18px;
+        text-align: left;
+      }
+
+      .how-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .how-step {
+        min-height: auto;
+        padding: 28px 24px 32px;
+        border-right: none;
+        border-bottom: 1px solid #242424;
+      }
+
+      .how-step:last-child {
+        border-bottom: none;
+      }
+
+      .how-number {
+        margin-bottom: 32px;
+      }
+
+      .how-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .how-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+
       /* ABOUT */
 
       .about-premium {
@@ -2268,6 +2481,10 @@
           Creators
         </a>
 
+        <a href="#how-it-works">
+          How It Works
+        </a>
+
         <a href="#brands">
           For Brands
         </a>
@@ -2411,6 +2628,87 @@
 
   </section>
 
+
+
+  <!-- =========================
+       HOW GDRX WORKS
+  ========================= -->
+
+  <section id="how-it-works" class="reveal">
+
+    <div class="how-heading">
+
+      <div class="how-heading-left">
+
+        <div class="section-label">
+          HOW GDRX WORKS
+        </div>
+
+        <h2 class="section-title">
+          From brief to campaign.
+          <br>
+          <span style="color:#666666;">We handle the moving parts.</span>
+        </h2>
+
+      </div>
+
+      <p class="how-intro">
+        A clear, creator-first workflow built to keep brand campaigns focused, coordinated and ready to perform.
+      </p>
+
+    </div>
+
+    <div class="how-steps reveal-stagger">
+
+      <article class="how-step">
+        <span class="how-number">01</span>
+        <div class="how-kicker">Brief</div>
+        <h3>Tell us the goal.</h3>
+        <p>
+          Share your campaign objective, audience, platform, deliverables, timeline and budget direction.
+        </p>
+      </article>
+
+      <article class="how-step">
+        <span class="how-number">02</span>
+        <div class="how-kicker">Match</div>
+        <h3>We find the fit.</h3>
+        <p>
+          We shortlist creators based on audience, niche, content style and campaign suitability—not just follower count.
+        </p>
+      </article>
+
+      <article class="how-step">
+        <span class="how-number">03</span>
+        <div class="how-kicker">Execute</div>
+        <h3>We manage the run.</h3>
+        <p>
+          Briefing, creator coordination, content flow, approvals, deliverables and publishing stay organised through execution.
+        </p>
+      </article>
+
+      <article class="how-step">
+        <span class="how-number">04</span>
+        <div class="how-kicker">Report</div>
+        <h3>We close the loop.</h3>
+        <p>
+          Once the campaign is live, we consolidate delivery and available performance data into a clear campaign readout.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="how-bottom">
+      <div class="how-bottom-note">
+        STRATEGY · CREATOR FIT · EXECUTION · REPORTING
+      </div>
+
+      <a class="how-cta" href="#contact" data-inquiry="brand">
+        START A CAMPAIGN <span>↗</span>
+      </a>
+    </div>
+
+  </section>
 
 
   <!-- =========================
