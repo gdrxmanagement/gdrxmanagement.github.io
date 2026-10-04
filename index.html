@@ -2016,6 +2016,213 @@
       }
     }
 
+
+
+    /* =========================
+       BRAND / CREATOR INQUIRY FORMS
+    ========================= */
+
+    .contact-role-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .contact-role-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 190px;
+      padding: 15px 22px;
+      border: 1px solid #333333;
+      border-radius: 5px;
+      background: #111111;
+      color: #d9d9d9;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .3s ease, background .3s ease, border-color .3s ease, color .3s ease;
+    }
+
+    .contact-role-button:hover,
+    .contact-role-button.active {
+      transform: translateY(-3px);
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #000000;
+    }
+
+    .inquiry-panel {
+      display: none;
+      margin: 42px auto 0;
+      max-width: 760px;
+      padding: 30px;
+      border: 1px solid #252525;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #0e0e0e, #080808);
+      text-align: left;
+    }
+
+    .inquiry-panel.active {
+      display: block;
+      animation: inquiryIn .45s ease both;
+    }
+
+    @keyframes inquiryIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .inquiry-panel h3 {
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-size: 22px;
+      letter-spacing: -.5px;
+    }
+
+    .inquiry-panel > p {
+      margin-bottom: 24px;
+      color: #777777;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .inquiry-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .inquiry-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .inquiry-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .inquiry-field label {
+      color: #777777;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .inquiry-field input,
+    .inquiry-field select,
+    .inquiry-field textarea {
+      width: 100%;
+      border: 1px solid #292929;
+      border-radius: 5px;
+      outline: none;
+      background: #0a0a0a;
+      color: #eeeeee;
+      padding: 13px 14px;
+      font: inherit;
+      font-size: 13px;
+      transition: border-color .25s ease, background .25s ease;
+    }
+
+    .inquiry-field textarea {
+      min-height: 125px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .inquiry-field input:focus,
+    .inquiry-field select:focus,
+    .inquiry-field textarea:focus {
+      border-color: #777777;
+      background: #0d0d0d;
+    }
+
+    .inquiry-submit {
+      grid-column: 1 / -1;
+      margin-top: 4px;
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      background: #ffffff;
+      color: #000000;
+      padding: 15px 20px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .3s ease, background .3s ease;
+    }
+
+    .inquiry-submit:hover {
+      transform: translateY(-3px);
+      background: #e9e9e9;
+    }
+
+    .inquiry-note {
+      margin-top: 13px !important;
+      margin-bottom: 0 !important;
+      color: #505050 !important;
+      font-size: 10px !important;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .hero-button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: #3a3a3a;
+    }
+
+    .hero-button.secondary:hover {
+      background: #151515;
+      border-color: #777777;
+    }
+
+    @media (max-width: 800px) {
+      .contact-role-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .inquiry-panel {
+        padding: 22px 18px;
+      }
+
+      .inquiry-form {
+        grid-template-columns: 1fr;
+      }
+
+      .inquiry-field.full,
+      .inquiry-submit {
+        grid-column: auto;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .hero-actions .hero-button {
+        width: 100%;
+        max-width: 290px;
+      }
+    }
+
   </style>
 </head>
 
@@ -2097,12 +2304,25 @@
       </p>
 
 
-      <a
-        class="hero-button"
-        href="#contact"
-      >
-        WORK WITH US
-      </a>
+      <div class="hero-actions">
+
+        <a
+          class="hero-button"
+          href="#contact"
+          data-inquiry="brand"
+        >
+          START A CAMPAIGN
+        </a>
+
+        <a
+          class="hero-button secondary"
+          href="#contact"
+          data-inquiry="creator"
+        >
+          JOIN GDRX
+        </a>
+
+      </div>
 
 
       <div class="hero-trust">
@@ -2802,19 +3022,128 @@
       </p>
 
 
-      <div class="contact-actions">
+      <div class="contact-role-actions" aria-label="Choose your enquiry type">
 
-        <a
-          class="contact-button"
-          href="mailto:gdrx.management@gmail.com"
-        >
-          SEND AN INQUIRY
+        <button class="contact-role-button active" type="button" data-inquiry="brand">
+          START A CAMPAIGN <span>↗</span>
+        </button>
 
-          <span>
-            ↗
-          </span>
+        <button class="contact-role-button" type="button" data-inquiry="creator">
+          JOIN GDRX <span>↗</span>
+        </button>
 
-        </a>
+      </div>
+
+      <div class="inquiry-panel active" id="brand-inquiry">
+
+        <h3>Start a Campaign</h3>
+        <p>Tell us what you are planning and we’ll get back with the right creator opportunities for your campaign.</p>
+
+        <form class="inquiry-form" data-form-type="brand">
+
+          <div class="inquiry-field">
+            <label for="brand-name">Name *</label>
+            <input id="brand-name" name="name" type="text" placeholder="Your name" required>
+          </div>
+
+          <div class="inquiry-field">
+            <label for="brand-email">Work Email *</label>
+            <input id="brand-email" name="email" type="email" placeholder="name@company.com" required>
+          </div>
+
+          <div class="inquiry-field">
+            <label for="brand-company">Brand / Company *</label>
+            <input id="brand-company" name="company" type="text" placeholder="Your brand or company" required>
+          </div>
+
+          <div class="inquiry-field">
+            <label for="brand-phone">Phone / WhatsApp</label>
+            <input id="brand-phone" name="phone" type="tel" placeholder="+91 00000 00000">
+          </div>
+
+          <div class="inquiry-field">
+            <label for="brand-type">Campaign Type</label>
+            <select id="brand-type" name="campaign_type">
+              <option value="YouTube Integration">YouTube Integration</option>
+              <option value="Short-form Content">Short-form Content</option>
+              <option value="Livestream Activation">Livestream Activation</option>
+              <option value="Creator Campaign">Creator Campaign</option>
+              <option value="Product Integration">Product Integration</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="inquiry-field">
+            <label for="brand-budget">Budget Range</label>
+            <select id="brand-budget" name="budget">
+              <option value="Not decided yet">Not decided yet</option>
+              <option value="Under ₹50K">Under ₹50K</option>
+              <option value="₹50K – ₹2L">₹50K – ₹2L</option>
+              <option value="₹2L – ₹5L">₹2L – ₹5L</option>
+              <option value="₹5L+">₹5L+</option>
+            </select>
+          </div>
+
+          <div class="inquiry-field full">
+            <label for="brand-message">Campaign Brief *</label>
+            <textarea id="brand-message" name="message" placeholder="Tell us about your product, target audience, campaign goals, timeline and preferred creators/platforms." required></textarea>
+          </div>
+
+          <button class="inquiry-submit" type="submit">SEND CAMPAIGN BRIEF ↗</button>
+
+        </form>
+
+        <p class="inquiry-note">Submitting will open your email app with the enquiry details pre-filled.</p>
+
+      </div>
+
+      <div class="inquiry-panel" id="creator-inquiry">
+
+        <h3>Join GDRX</h3>
+        <p>Think GDRX could be the right management partner for your creator journey? Send us your profile and social details.</p>
+
+        <form class="inquiry-form" data-form-type="creator">
+
+          <div class="inquiry-field">
+            <label for="creator-name">Full Name *</label>
+            <input id="creator-name" name="name" type="text" placeholder="Your name" required>
+          </div>
+
+          <div class="inquiry-field">
+            <label for="creator-email">Email *</label>
+            <input id="creator-email" name="email" type="email" placeholder="you@email.com" required>
+          </div>
+
+          <div class="inquiry-field">
+            <label for="creator-instagram">Instagram</label>
+            <input id="creator-instagram" name="instagram" type="text" placeholder="@username">
+          </div>
+
+          <div class="inquiry-field">
+            <label for="creator-youtube">YouTube Channel</label>
+            <input id="creator-youtube" name="youtube" type="url" placeholder="https://youtube.com/...">
+          </div>
+
+          <div class="inquiry-field">
+            <label for="creator-followers">Audience Size</label>
+            <input id="creator-followers" name="audience" type="text" placeholder="e.g. 500K subscribers">
+          </div>
+
+          <div class="inquiry-field">
+            <label for="creator-niche">Category / Niche *</label>
+            <input id="creator-niche" name="niche" type="text" placeholder="Gaming, lifestyle, tech, etc." required>
+          </div>
+
+          <div class="inquiry-field full">
+            <label for="creator-message">Tell Us About You *</label>
+            <textarea id="creator-message" name="message" placeholder="Tell us about your content, audience, goals and the kind of brand opportunities you are looking for." required></textarea>
+          </div>
+
+          <button class="inquiry-submit" type="submit">SUBMIT CREATOR APPLICATION ↗</button>
+
+        </form>
+
+        <p class="inquiry-note">Submitting will open your email app with the application details pre-filled.</p>
 
       </div>
 
@@ -3003,7 +3332,83 @@
         });
       }
     })();
-  </script>
+  
+
+    /* =========================
+       INQUIRY ROUTING
+    ========================= */
+
+    const inquiryButtons = document.querySelectorAll('[data-inquiry]');
+    const brandPanel = document.getElementById('brand-inquiry');
+    const creatorPanel = document.getElementById('creator-inquiry');
+    const roleButtons = document.querySelectorAll('.contact-role-button[data-inquiry]');
+
+    function showInquiry(type, scrollToPanel = false) {
+      const isCreator = type === 'creator';
+
+      brandPanel.classList.toggle('active', !isCreator);
+      creatorPanel.classList.toggle('active', isCreator);
+
+      roleButtons.forEach(button => {
+        button.classList.toggle('active', button.dataset.inquiry === type);
+      });
+
+      if (scrollToPanel) {
+        setTimeout(() => {
+          const panel = isCreator ? creatorPanel : brandPanel;
+          panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 80);
+      }
+    }
+
+    inquiryButtons.forEach(button => {
+      button.addEventListener('click', event => {
+        const type = button.dataset.inquiry;
+        if (!type) return;
+        showInquiry(type, true);
+      });
+    });
+
+    document.querySelectorAll('.inquiry-form').forEach(form => {
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const type = form.dataset.formType;
+        const data = new FormData(form);
+        const values = Object.fromEntries(data.entries());
+        const subject = type === 'brand'
+          ? `GDRX Campaign Inquiry — ${values.company || values.name}`
+          : `GDRX Creator Application — ${values.name}`;
+
+        const lines = type === 'brand'
+          ? [
+              `Name: ${values.name}`,
+              `Work Email: ${values.email}`,
+              `Brand / Company: ${values.company}`,
+              `Phone / WhatsApp: ${values.phone || 'Not provided'}`,
+              `Campaign Type: ${values.campaign_type}`,
+              `Budget Range: ${values.budget}`,
+              '',
+              'Campaign Brief:',
+              values.message
+            ]
+          : [
+              `Full Name: ${values.name}`,
+              `Email: ${values.email}`,
+              `Instagram: ${values.instagram || 'Not provided'}`,
+              `YouTube: ${values.youtube || 'Not provided'}`,
+              `Audience Size: ${values.audience || 'Not provided'}`,
+              `Category / Niche: ${values.niche}`,
+              '',
+              'About the Creator:',
+              values.message
+            ];
+
+        window.location.href = `mailto:gdrx.management@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      });
+    });
+
+</script>
 
 </body>
 </html>
