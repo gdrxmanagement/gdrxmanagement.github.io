@@ -2844,6 +2844,72 @@
       }
     }
 
+  
+/* Premium GDRX logo treatment */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 1.8px;
+}
+
+.logo-mark {
+  width: 31px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
+  opacity: .96;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,.05));
+  transition: transform .35s ease, opacity .35s ease, filter .35s ease;
+}
+
+.logo:hover .logo-mark {
+  transform: translateY(-1px) scale(1.035);
+  opacity: 1;
+  filter: drop-shadow(0 0 14px rgba(255,255,255,.10));
+}
+
+.logo-wordmark {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2.2px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.footer-brand {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 22px;
+}
+
+.footer-brand img {
+  width: min(180px, 48vw);
+  height: auto;
+  max-height: 170px;
+  object-fit: contain;
+  display: block;
+  opacity: .82;
+  filter: drop-shadow(0 0 24px rgba(255,255,255,.045));
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.footer-brand img:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+  .logo { gap: 9px; }
+  .logo-mark { width: 27px; height: 33px; }
+  .logo-wordmark { font-size: 10px; letter-spacing: 1.8px; }
+  .footer-brand { margin-bottom: 18px; }
+  .footer-brand img { width: 150px; max-height: 145px; }
+}
+
   </style>
 </head>
 
@@ -2862,7 +2928,8 @@
     <div class="nav">
 
       <a class="logo" href="#top" aria-label="GDRX Management - Home">
-        GDRX MANAGEMENT
+        <img class="logo-mark" src="gdrx-mark-transparent.png" alt="GDRX Management" width="984" height="1201">
+        <span class="logo-wordmark">GDRX MANAGEMENT</span>
       </a>
 
       <nav>
@@ -4289,6 +4356,10 @@
   ========================= -->
 
   <footer class="reveal">
+
+    <div class="footer-brand">
+      <img src="gdrx-management-transparent.png" alt="GarudaX — Rise Beyond Limits" width="993" height="1086" loading="lazy">
+    </div>
 
     <p>
       © 2026 GDRX Management. All rights reserved.
