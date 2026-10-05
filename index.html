@@ -1169,6 +1169,183 @@
 
 
     /* =========================
+       FAQ
+    ========================= */
+
+    #faq {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #faq::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      left: -280px;
+      top: 70px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.025);
+      box-shadow: 0 0 100px rgba(255,255,255,0.02);
+      pointer-events: none;
+    }
+
+    .faq-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-heading-left {
+      max-width: 720px;
+    }
+
+    .faq-heading .section-title {
+      margin-bottom: 0;
+    }
+
+    .faq-intro {
+      max-width: 340px;
+      color: #777777;
+      font-size: 13px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    .faq-list {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #242424;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #242424;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 42px 1fr 32px;
+      align-items: center;
+      gap: 18px;
+      padding: 25px 4px;
+      border: 0;
+      background: transparent;
+      color: #ffffff;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .faq-number {
+      color: #555555;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .faq-question-text {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      transition: color .3s ease;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #303030;
+      border-radius: 50%;
+      color: #777777;
+      font-size: 17px;
+      line-height: 1;
+      transition: transform .35s ease, background .35s ease, color .35s ease, border-color .35s ease;
+    }
+
+    .faq-question:hover .faq-question-text {
+      color: #cfcfcf;
+    }
+
+    .faq-question:hover .faq-icon {
+      border-color: #555555;
+      color: #ffffff;
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .45s var(--ease-premium);
+    }
+
+    .faq-answer-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .faq-answer p {
+      max-width: 760px;
+      padding: 0 50px 0 60px;
+      color: #777777;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .faq-item.active .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-item.active .faq-answer p {
+      padding-bottom: 26px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #000000;
+    }
+
+    .faq-bottom {
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-bottom-note {
+      color: #5f5f5f;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .faq-bottom-link {
+      color: #bdbdbd;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      border-bottom: 1px solid #333333;
+      padding-bottom: 4px;
+      transition: color .3s ease, border-color .3s ease;
+    }
+
+    .faq-bottom-link:hover {
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+
+    /* =========================
        PREMIUM ABOUT
     ========================= */
 
@@ -1837,6 +2014,46 @@
       }
 
 
+      /* FAQ */
+
+      .faq-heading {
+        display: block;
+        margin-bottom: 35px;
+      }
+
+      .faq-intro {
+        max-width: 100%;
+        margin-top: 18px;
+        text-align: left;
+      }
+
+      .faq-question {
+        grid-template-columns: 34px 1fr 30px;
+        gap: 10px;
+        padding: 22px 0;
+      }
+
+      .faq-question-text {
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .faq-answer p {
+        padding: 0 0 0 44px;
+        font-size: 13px;
+        line-height: 1.8;
+      }
+
+      .faq-item.active .faq-answer p {
+        padding-bottom: 23px;
+      }
+
+      .faq-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+
       /* ABOUT */
 
       .about-premium {
@@ -2487,6 +2704,10 @@
 
         <a href="#brands">
           For Brands
+        </a>
+
+        <a href="#faq">
+          FAQ
         </a>
 
         <a href="#about">
@@ -3184,6 +3405,167 @@
 
 
   <!-- =========================
+       FAQ
+  ========================= -->
+
+  <section id="faq" class="reveal">
+
+    <div class="faq-heading">
+
+      <div class="faq-heading-left">
+
+        <div class="section-label">
+          FAQ
+        </div>
+
+        <h2 class="section-title">
+          Questions, answered.
+          <br>
+          <span style="color:#666666;">Before we get started.</span>
+        </h2>
+
+      </div>
+
+      <p class="faq-intro">
+        A few of the questions brands and creators ask before working with GDRX.
+      </p>
+
+    </div>
+
+    <div class="faq-list reveal-stagger">
+
+      <div class="faq-item active">
+        <button class="faq-question" type="button" aria-expanded="true">
+          <span class="faq-number">01</span>
+          <span class="faq-question-text">What does GDRX Management do?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              GDRX Management connects creators with brands for commercial partnerships. We help structure creator-led campaigns around the right audience, content format and campaign objective, while keeping the process focused and coordinated.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-number">02</span>
+          <span class="faq-question-text">How can a brand work with GDRX?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              Start a campaign through the inquiry form and share your product, target audience, campaign objective, timeline and preferred platforms. Our team can then review the brief and identify relevant creator opportunities.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-number">03</span>
+          <span class="faq-question-text">What types of creator campaigns do you handle?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              GDRX works across YouTube integrations, short-form content, livestream activations, product integrations and broader creator campaigns. The right format depends on the brief, creator fit and campaign goals.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-number">04</span>
+          <span class="faq-question-text">Do you work with brands across India?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              GDRX is focused on the Indian creator market and can explore partnerships with brands looking to reach India-focused audiences through relevant creators.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-number">05</span>
+          <span class="faq-question-text">How does a creator join GDRX?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              Creators can use the JOIN GDRX option in the contact section and submit their profile, social links, audience information, niche and goals. GDRX reviews applications based on fit and current management opportunities; submitting an application does not guarantee representation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-number">06</span>
+          <span class="faq-question-text">Do creators need a specific follower count to apply?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              There is no single follower number stated by GDRX as a universal requirement. Creator fit, content, audience and the opportunities available through the roster are more useful factors than follower count alone.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-number">07</span>
+          <span class="faq-question-text">What should I include in a campaign brief?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              The more useful details you can share, the better: product or service, target audience, campaign objective, preferred platforms, deliverables, timeline, budget range and any important brand requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-number">08</span>
+          <span class="faq-question-text">Are campaign results or creator placements guaranteed?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              No. Creator selection, availability, campaign performance and commercial outcomes depend on the brief, creator fit, content and execution. GDRX does not use this FAQ to promise a fixed number of views, sales, leads or campaign results.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="faq-bottom">
+      <span class="faq-bottom-note">Still have a question?</span>
+      <a class="faq-bottom-link" href="#contact">TALK TO GDRX ↗</a>
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
        ABOUT
   ========================= -->
 
@@ -3682,6 +4064,28 @@
         const type = button.dataset.inquiry;
         if (!type) return;
         showInquiry(type, true);
+      });
+    });
+
+    /* =========================
+       FAQ ACCORDION
+    ========================= */
+
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const wasOpen = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          otherItem.classList.remove('active');
+          const otherButton = otherItem.querySelector('.faq-question');
+          if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!wasOpen) {
+          item.classList.add('active');
+          button.setAttribute('aria-expanded', 'true');
+        }
       });
     });
 
