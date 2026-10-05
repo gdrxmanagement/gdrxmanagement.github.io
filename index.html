@@ -2671,7 +2671,139 @@
 .logo:hover {
   color: inherit;
 }
-</style>
+
+
+    /* =========================
+       LEGAL MODALS
+    ========================= */
+    .legal-section {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      max-width: none;
+      margin: 0;
+      padding: 28px 20px;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow-y: auto;
+    }
+
+    .legal-section.active {
+      display: block;
+    }
+
+    .legal-wrap {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px;
+      background: #0b0b0b;
+      border: 1px solid #292929;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.55);
+    }
+
+    .legal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      width: 42px;
+      height: 42px;
+      margin: -10px -10px 20px 20px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      background: #151515;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+      transition: .25s ease;
+    }
+
+    .legal-close:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+      transform: rotate(90deg);
+    }
+
+    .legal-updated {
+      color: #666;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin: -35px 0 30px;
+      text-transform: uppercase;
+    }
+
+    .legal-intro, .legal-block p {
+      color: #8a8a8a;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .legal-block {
+      padding: 22px 0;
+      border-top: 1px solid #202020;
+    }
+
+    .legal-block h3 {
+      font-size: 16px;
+      margin-bottom: 9px;
+    }
+
+    .legal-contact {
+      display: inline-block;
+      margin-top: 10px;
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .legal-footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .legal-footer-links button {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: #777;
+      font: inherit;
+      font-size: 11px;
+      cursor: pointer;
+      transition: color .25s ease;
+    }
+
+    .legal-footer-links button:hover {
+      color: #fff;
+    }
+
+    body.legal-open {
+      overflow: hidden;
+    }
+
+    @media (max-width: 800px) {
+      .legal-section {
+        padding: 14px;
+      }
+
+      .legal-wrap {
+        padding: 30px 20px;
+      }
+
+      .legal-close {
+        margin: -4px -4px 15px 15px;
+      }
+    }
+
+  </style>
 </head>
 
 
@@ -3953,8 +4085,9 @@
        PRIVACY POLICY
   ========================= -->
 
-  <section id="privacy-policy" class="legal-section reveal">
+  <section id="privacy-policy" class="legal-section" aria-hidden="true">
     <div class="legal-wrap">
+      <button class="legal-close" type="button" data-legal-close aria-label="Close">×</button>
       <div class="section-label">PRIVACY</div>
       <h2 class="section-title">Privacy Policy</h2>
       <p class="legal-updated">Last updated: 5 October 2026</p>
@@ -4010,8 +4143,9 @@
        TERMS & CONDITIONS
   ========================= -->
 
-  <section id="terms" class="legal-section reveal">
+  <section id="terms" class="legal-section" aria-hidden="true">
     <div class="legal-wrap">
+      <button class="legal-close" type="button" data-legal-close aria-label="Close">×</button>
       <div class="section-label">LEGAL</div>
       <h2 class="section-title">Terms &amp; Conditions</h2>
       <p class="legal-updated">Last updated: 5 October 2026</p>
@@ -4072,8 +4206,9 @@
        COOKIE / TRACKING NOTICE
   ========================= -->
 
-  <section id="cookies" class="legal-section reveal">
+  <section id="cookies" class="legal-section" aria-hidden="true">
     <div class="legal-wrap">
+      <button class="legal-close" type="button" data-legal-close aria-label="Close">×</button>
       <div class="section-label">COOKIES &amp; TRACKING</div>
       <h2 class="section-title">Cookie &amp; Tracking Notice</h2>
       <p class="legal-updated">Last updated: 5 October 2026</p>
@@ -4119,11 +4254,11 @@
     </p>
 
     <div class="legal-footer-links" aria-label="Legal links">
-      <a href="#privacy-policy">Privacy Policy</a>
+      <button type="button" data-legal-open="privacy-policy">Privacy Policy</button>
       <span aria-hidden="true">•</span>
-      <a href="#terms">Terms &amp; Conditions</a>
+      <button type="button" data-legal-open="terms">Terms &amp; Conditions</button>
       <span aria-hidden="true">•</span>
-      <a href="#cookies">Cookie &amp; Tracking</a>
+      <button type="button" data-legal-open="cookies">Cookie &amp; Tracking</button>
     </div>
 
   </footer>
@@ -4228,6 +4363,53 @@
         if (!type) return;
         showInquiry(type, true);
       });
+    });
+
+    /* =========================
+       LEGAL MODALS
+    ========================= */
+
+    const legalSections = document.querySelectorAll('.legal-section');
+
+    function openLegal(id) {
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      legalSections.forEach(section => {
+        section.classList.remove('active');
+        section.setAttribute('aria-hidden', 'true');
+      });
+
+      target.classList.add('active');
+      target.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('legal-open');
+      target.scrollTop = 0;
+    }
+
+    function closeLegal() {
+      legalSections.forEach(section => {
+        section.classList.remove('active');
+        section.setAttribute('aria-hidden', 'true');
+      });
+      document.body.classList.remove('legal-open');
+    }
+
+    document.querySelectorAll('[data-legal-open]').forEach(button => {
+      button.addEventListener('click', () => openLegal(button.dataset.legalOpen));
+    });
+
+    document.querySelectorAll('[data-legal-close]').forEach(button => {
+      button.addEventListener('click', closeLegal);
+    });
+
+    legalSections.forEach(section => {
+      section.addEventListener('click', event => {
+        if (event.target === section) closeLegal();
+      });
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeLegal();
     });
 
     /* =========================
