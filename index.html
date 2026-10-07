@@ -3546,7 +3546,76 @@ footer {
       .section-divider { width: calc(100% - 32px); }
     }
 
-  </style>
+  
+
+/* =========================
+   LEGAL MODAL FIX — FINAL
+   The later premium section rules were overriding
+   .legal-section { position: fixed; }, causing the
+   legal panels to render in the page instead of as
+   full-screen scrollable modals.
+========================= */
+section.legal-section {
+  display: none !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  width: 100vw !important;
+  max-width: none !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 28px 20px !important;
+  box-sizing: border-box !important;
+  background: rgba(0,0,0,.86) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+section.legal-section.active {
+  display: block !important;
+}
+
+section.legal-section::before,
+section.legal-section::after {
+  display: none !important;
+  content: none !important;
+}
+
+section.legal-section .legal-wrap {
+  width: min(900px, 100%) !important;
+  max-width: 900px !important;
+  margin: 0 auto 40px !important;
+  box-sizing: border-box !important;
+}
+
+section.legal-section .legal-close {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+html:has(body.legal-open),
+body.legal-open {
+  overflow: hidden !important;
+}
+
+@media (max-width: 800px) {
+  section.legal-section {
+    padding: 14px !important;
+  }
+
+  section.legal-section .legal-wrap {
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+}
+
+</style>
 </head>
 
 
